@@ -1,8 +1,18 @@
 # Please install OpenAI SDK first: `pip3 install openai`
 
+import os
+from dotenv import load_dotenv
 from openai import OpenAI
 
-client = OpenAI(api_key="sk-583761f02276480ea686a639e51d7312", base_url="https://api.deepseek.com")
+# Cargar variables de entorno desde el archivo .env
+load_dotenv()
+
+# Obtener la clave API desde la variable de entorno
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("La clave API 'OPENAI_API_KEY' no está configurada en el archivo .env.")
+
+client = OpenAI(api_key=api_key, base_url="https://api.deepseek.com")
 
 response = client.chat.completions.create(
     model="deepseek-chat",

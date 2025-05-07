@@ -15,7 +15,7 @@ def text_to_speech_file(text: str) -> str:
     # Convertir texto a voz usando ElevenLabs API
     response = client.text_to_speech.convert(
         text=text,
-        voice_id="JBFqnCBsd6RMkjVDRZzb",
+        voice_id="knrPHWnBmmDHMoiMeP3l",
         model_id="eleven_multilingual_v2",
         output_format="mp3_44100_128",
         # Parámetros opcionales para personalizar la voz
